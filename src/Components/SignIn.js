@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
     const [formData, setFormData] = useState({
-        email: "",
+        username: "",
         password: ""
     })
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -23,7 +26,7 @@ export default function SignIn() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    email: formData.email,
+                    username: formData.username,
                     password: formData.password
                 })
             })
@@ -48,11 +51,11 @@ export default function SignIn() {
         <div>
             <form onSubmit={handleSubmit}>
                 <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    name="username"
+                    value={formData.username}
                     onChange={handleChange}
-                    placeholder="Please enter your email"
+                    placeholder="Please enter your username"
                 />
                 <input
                     type="password"
