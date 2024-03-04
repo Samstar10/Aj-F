@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
 
@@ -8,6 +9,7 @@ export default function SignUp() {
         password: "",
         confirmPassword: ""
     })
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -41,6 +43,7 @@ export default function SignUp() {
                 if(data.access_token) {
                     localStorage.setItem("token", data.access_token)
                     console.log("signed up", data)
+                    navigate("/signin")
                 }
                 else {
                     console.log("sign up failed", data)
@@ -50,12 +53,12 @@ export default function SignUp() {
         catch(err) {
             console.log(err)
         }
-        setFormData({
-            username: "",
-            email: "",
-            password: "",
-            confirmPassword: ""
-        })
+        // setFormData({
+        //     username: "",
+        //     email: "",
+        //     password: "",
+        //     confirmPassword: ""
+        // })
     }
 
     return (
