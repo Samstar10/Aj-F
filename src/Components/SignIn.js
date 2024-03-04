@@ -32,6 +32,7 @@ export default function SignIn() {
                 if(data.access_token) {
                     localStorage.setItem("token", data.access_token)
                     console.log("signed in", data)
+                    navigate("/incidentreport")
                 }
                 else {
                     console.log("sign in failed", data)
