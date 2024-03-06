@@ -49,23 +49,28 @@ export default function SignIn() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                    placeholder="Please enter your username"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder="Enter your password"
-                />
-                <button type="submit">Sign In</button>
-            </form>
+            <div>
+
+            </div>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleChange}
+                        placeholder="Please enter your username"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        placeholder="Enter your password"
+                    />
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
         </div>
     );
 }

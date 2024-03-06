@@ -40,3 +40,9 @@
 * {
   font-family: 'poppins', sans-serif;
 }
+
+.background-img {
+  background-image: url(../public/Rectangle\ 78.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
