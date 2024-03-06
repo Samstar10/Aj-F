@@ -3,6 +3,7 @@ import SignUp from './Components/SignUp';
 import SignIn from './Components/SignIn';
 import IncidentReport from './Components/IncidentReport';
 import PasswordReset from './Components/PasswordReset';
+import './App.css';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token")
