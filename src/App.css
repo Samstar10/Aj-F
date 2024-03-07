@@ -46,3 +46,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.active {
+  background-color: white;
+}
