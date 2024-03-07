@@ -50,3 +50,29 @@
 .active {
   background-color: white;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradualAppearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.transition {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.appear{
+  animation: 3s ease-out 0s 1 gradualAppearance;
+}
