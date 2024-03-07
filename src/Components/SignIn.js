@@ -73,7 +73,7 @@ export default function SignIn() {
                         <p className="text-base font-normal">Welcome to Ajali</p>
                     </div>
                     <div className="mt-6  mx-auto">
-                        <div className="flex justify-center items-center p-3 bg-[#E2E3E3] rounded-[33px]">
+                        <div className="flex justify-center items-center p-3 bg-[#E2E3E3] rounded-[33px] shadow-lg">
                             <div className="bg-[#0A2FB6] px-4 xl:px-8 py-1 rounded-[33px]">
                                 <button className="text-white font-normal xl:text-base text-xs">Login</button>
                             </div>
@@ -106,7 +106,7 @@ export default function SignIn() {
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-6"
                             />
                             <Link to="/passwordreset"  className="text-right text-xs font-light mb-10">Forgot Password?</Link>
-                            <button type="submit" className="text-right bg-[#0A2FB6] ml-auto text-white text-sm xl:text-base flex justify-center items-center py-3 w-1/2 rounded-[36px] hover:bg-[#5573de]">Log In</button>
+                            <button type="submit" className="text-right bg-[#0A2FB6] ml-auto text-white text-sm xl:text-base flex justify-center items-center py-3 w-1/2 rounded-[36px] hover:bg-[#5573de] shadow-xl">Log In</button>
                         </form>
                     </div>
                 </div>

@@ -82,7 +82,7 @@ export default function SignUp() {
                         <p className="text-base font-normal">Welcome to Ajali</p>
                     </div>
                     <div className="mt-6 mb-9  mx-auto">
-                        <div className="flex justify-center items-center p-3 bg-[#E2E3E3] rounded-[33px]">
+                        <div className="flex justify-center items-center p-3 bg-[#E2E3E3] rounded-[33px] shadow-lg">
                             <div className="bg-inherit px-4 xl:px-8 py-1 rounded-[33px]">
                                 <button onClick={navigateToSignIn} className="text-[#0A2FB6] hover:text-white font-normal xl:text-base text-xs">Login</button>
                             </div>
@@ -129,7 +129,7 @@ export default function SignUp() {
                                 onChange={handleChange}
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-16"
                             />
-                            <button type="submit" className="text-right bg-[#0A2FB6] ml-auto text-white text-sm xl:text-base flex justify-center items-center py-3 w-1/2 rounded-[36px] hover:bg-[#5573de]">Sign Up</button>
+                            <button type="submit" className="text-right bg-[#0A2FB6] ml-auto text-white text-sm xl:text-base flex justify-center items-center py-3 w-1/2 rounded-[36px] hover:bg-[#5573de] shadow-xl">Sign Up</button>
                         </form>
                     </div>
                 </div>
