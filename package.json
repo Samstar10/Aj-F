@@ -1,7 +1,6 @@
 {
   "name": "ajali-f",
   "version": "0.1.0",
-  "homepage": "https://samstar10.github.io/Aj-F",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
