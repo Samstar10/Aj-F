@@ -58,7 +58,7 @@ export default function PasswordReset() {
             <div className="background-img hidden h-full w-1/2 rounded-[29px] xl:flex justify-start items-end p-10">
                 <div >
                     <h1 className="text-3xl font-bold text-[37px] text-left text-[#FFFFFF]">Ajali</h1>
-                    <p className="text-[#FFFFFF] text-[25px] mt-4 font-normal">SWIFT ALERTS, TIMELY ACTIONS</p>
+                    <p className="text-[#FFFFFF] text-[25px] mt-4 font-normal">Swift Alerts, Timely Actions</p>
                 </div>
             </div>
             <div className="w-full xl:w-1/2 h-full px-5 md:px-40 lg:px-40 xl:px-20">
