@@ -4,6 +4,7 @@ import SignIn from './Components/SignIn';
 import IncidentReport from './Components/IncidentReport';
 import PasswordReset from './Components/PasswordReset';
 import './App.css';
+import Home from './Components/Home';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token")
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route exact path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/incidentreport" element={<PrivateRoute><IncidentReport /></PrivateRoute>} />
