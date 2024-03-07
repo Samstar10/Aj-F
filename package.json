@@ -1,12 +1,14 @@
 {
   "name": "ajali-f",
   "version": "0.1.0",
+  "homepage": "https://Samstar10.github.io/Aj-F/signin",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.18",
+    "gh-pages": "^6.1.1",
     "postcss-cli": "^11.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -15,8 +17,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "npm run build:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",
+    "build:css": "postcss src/tailwind.css -o src/index.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
