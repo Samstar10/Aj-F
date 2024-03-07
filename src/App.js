@@ -5,6 +5,7 @@ import IncidentReport from './Components/IncidentReport';
 import PasswordReset from './Components/PasswordReset';
 import './App.css';
 import Home from './Components/Home';
+import MyIncidents from './Components/MyIncidents';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token")
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/incidentreport" element={<PrivateRoute><IncidentReport /></PrivateRoute>} />
         <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/myincidents" element={<PrivateRoute><MyIncidents /></PrivateRoute>} />
       </Routes>
     </div>
   );
