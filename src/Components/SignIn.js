@@ -30,7 +30,12 @@ export default function SignIn() {
                     password: formData.password
                 })
             })
-            .then(res => res.json())
+            .then(res => {
+                if(!res.ok) {
+                    alert("invalid username or password")
+                }
+                return res.json()
+            })
             .then((data) => {
                 if(data.access_token) {
                     localStorage.setItem("token", data.access_token)
@@ -88,7 +93,7 @@ export default function SignIn() {
                                 name="username"
                                 value={formData.username}
                                 onChange={handleChange}
-                                placeholder="Please enter your username"
+                                placeholder="user@gmail.com"
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-6"
                             />
                             <label className="text-sm xl:text-base font-normal text-left mb-3">Password</label>
@@ -97,7 +102,7 @@ export default function SignIn() {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                placeholder="Enter your password"
+                                placeholder="*******"
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-6"
                             />
                             <Link to="/passwordreset"  className="text-right text-xs font-light mb-10">Forgot Password?</Link>

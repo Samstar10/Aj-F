@@ -96,7 +96,7 @@ export default function SignUp() {
                             <label htmlFor="username" className="text-sm xl:text-base font-normal text-left mb-3">Username</label>
                             <input
                                 type="text"
-                                placeholder="username"
+                                placeholder="user"
                                 name="username"
                                 value={formData.username}
                                 onChange={handleChange}
@@ -105,7 +105,7 @@ export default function SignUp() {
                             <label htmlFor="email" className="text-sm xl:text-base font-normal text-left mb-3">Email</label>
                             <input
                                 type="email"
-                                placeholder="email"
+                                placeholder="user@gmail.com"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
@@ -114,7 +114,7 @@ export default function SignUp() {
                             <label htmlFor="password" className="text-sm xl:text-base font-normal text-left mb-3">Password</label>
                             <input
                                 type="password"
-                                placeholder="password"
+                                placeholder="*******"
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
@@ -123,11 +123,11 @@ export default function SignUp() {
                             <label htmlFor="confirmPassword" className="text-sm xl:text-base font-normal text-left mb-3">Confirm Password</label>
                             <input 
                                 type="password"
-                                placeholder="Confirm password"
+                                placeholder="*******"
                                 name="confirmPassword"
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
-                                className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-20"
+                                className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-16"
                             />
                             <button type="submit" className="text-right bg-[#0A2FB6] ml-auto text-white text-sm xl:text-base flex justify-center items-center py-3 w-1/2 rounded-[36px] hover:bg-[#5573de]">Sign Up</button>
                         </form>
