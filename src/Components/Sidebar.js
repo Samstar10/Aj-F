@@ -17,7 +17,7 @@ export default function Sidebar() {
                 <NavLink to="/myincidents" activeClassName="active" className="text-white">My Incidents</NavLink>
             </div>
             <div className="mt-auto">
-                <button onClick={handleLogout} className="bottom-0">Sign Out</button>
+                <button onClick={handleLogout} className="bottom-0 text-white">Sign Out</button>
             </div>
         </aside>
     )
