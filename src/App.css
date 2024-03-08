@@ -49,6 +49,7 @@
 
 .active {
   background-color: white;
+  color: #0A2FB6;
 }
 
 @keyframes slideInFromLeft {
