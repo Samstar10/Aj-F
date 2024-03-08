@@ -77,7 +77,7 @@ export default function SignUp() {
                 <div className="text-right mb-9">
                     <h4 className="font-semibold text-xl">Ajali</h4>
                 </div>
-                <div className="flex flex-col justify-center my-auto">
+                <div className="flex flex-col justify-center mt-auto">
                     <div>
                         <p className="text-base font-normal">Welcome to Ajali</p>
                     </div>

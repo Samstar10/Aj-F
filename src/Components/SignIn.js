@@ -68,7 +68,7 @@ export default function SignIn() {
                 <div className="text-right mb-20">
                     <h4 className="font-semibold text-xl">Ajali</h4>
                 </div>
-                <div className="flex flex-col justify-center my-auto">
+                <div className="flex flex-col justify-center mt-auto">
                     <div>
                         <p className="text-base font-normal">Welcome to Ajali</p>
                     </div>
