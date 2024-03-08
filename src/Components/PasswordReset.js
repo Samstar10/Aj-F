@@ -65,7 +65,7 @@ export default function PasswordReset() {
                 <div className="text-right mb-24">
                     <h4 className="font-semibold text-xl">Ajali</h4>
                 </div>
-                <div className="flex flex-col justify-center my-auto">
+                <div className="flex flex-col justify-center mt-auto">
                     <div className="mb-10">
                         <p className="text-xl font-semibold">Reset Your Password</p>
                     </div>
