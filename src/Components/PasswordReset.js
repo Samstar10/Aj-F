@@ -80,20 +80,20 @@ export default function PasswordReset() {
                                 value={formData.email}
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-6"
                             />
-                            <label className="text-sm xl:text-base font-normal text-left mb-3">Password</label>
+                            <label className="text-sm xl:text-base font-normal text-left mb-3">New Password</label>
                             <input 
                                 type="password"
                                 name="password"
-                                placeholder="Enter your password"
+                                placeholder="Enter new password"
                                 onChange={handleChange}
                                 value={formData.password}
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-6"
                             />
-                            <label className="text-sm xl:text-base font-normal text-left mb-3">Confirm Password</label>
+                            <label className="text-sm xl:text-base font-normal text-left mb-3">Confirm New Password</label>
                             <input 
                                 type="password"
                                 name="confirmPassword"
-                                placeholder="Re-enter Password"
+                                placeholder="Re-enter new password"
                                 onChange={handleChange}
                                 value={formData.confirmPassword}
                                 className="border-[#AFAFAF] border-[1px] rounded-[40px] py-2 px-5 text-sm focus:outline-none mb-16"
