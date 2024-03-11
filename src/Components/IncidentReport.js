@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import MapWithSearch from "./MapWithSearch";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -16,6 +17,7 @@ export default function IncidentReport() {
     const [username, setUsername] = useState("")
     const navigate = useNavigate();
     const token = localStorage.getItem("token")
+    const googleMapsApiKey = "AIzaSyAzkck1QZS55S3XuMZ4jXNzkfH-W2r6u_8"
 
     const handleChange = (e) => {
         setFormData({
@@ -135,6 +137,7 @@ export default function IncidentReport() {
                             <label htmlFor="file">Images</label>
                             <input type="file" name="file" multiple onChange={(e) => setFiles(e.target.files)}/>
                             <button type="submit" onClick={handleSubmit}>Submit</button>
+                            <MapWithSearch googleMapsApiKey={googleMapsApiKey} />
                         </form>
                     </div>
                 </div> 
