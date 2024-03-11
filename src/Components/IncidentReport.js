@@ -19,26 +19,24 @@ export default function IncidentReport() {
     const token = localStorage.getItem("token")
     const googleMapsApiKey = "AIzaSyAzkck1QZS55S3XuMZ4jXNzkfH-W2r6u_8"
 
-    const handleChange = (e) => {
+    const handleLocationSelect = ({latitude, longitude, location}) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            latitude: latitude,
+            longitude: longitude,
+            location: location
         })
+
+        console.log(latitude, longitude, location, formData)
+    }
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormData((prev) => ({...prev, [name]: value}))
     }
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setFormData({
-                ...formData,
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            })
-        })
-    }, [])
-
-    useEffect(() => {
         if(token){
-            const pay_load = jwtDecode(token)
             const payload = JSON.parse(atob(token.split(".")[1]))
             const name = payload.username
 
@@ -52,9 +50,10 @@ export default function IncidentReport() {
             fetch("https://ajali-b.onrender.com/incidents", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
-                body: formData
+                body: JSON.stringify(formData)
             })
             .then(res => res.json())
             .then((data) => {
@@ -83,9 +82,9 @@ export default function IncidentReport() {
             fetch(`https://ajali-b.onrender.com/incidents/media/${reportId}`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Authorization": `Bearer ${token}`
                 },
-                body: data
+                body: JSON.stringify(data)
             })
             .then(res => res.json())
             .then((data) => {
@@ -115,6 +114,8 @@ export default function IncidentReport() {
         }
     }
 
+    
+
     return (
         <div className="flex">
             <Sidebar />
@@ -128,17 +129,11 @@ export default function IncidentReport() {
                             <input type="text" name="title" placeholder="title" onChange={handleChange}/>
                             <label htmlFor="description">Description</label>
                             <input type="text" name="description" placeholder="description" onChange={handleChange}/>
-                            <label htmlFor="location">Location</label>
-                            <input type="text" name="location" placeholder="location" onChange={handleChange}/>
-                            <label htmlFor="latitude">Latitude</label>
-                            <input type="text" name="latitude" placeholder="latitude" onChange={handleChange}/>
-                            <label htmlFor="longitude">Longitude</label>
-                            <input type="text" name="longitude" placeholder="longitude" onChange={handleChange}/>
                             <label htmlFor="file">Images</label>
                             <input type="file" name="file" multiple onChange={(e) => setFiles(e.target.files)}/>
                             <button type="submit" onClick={handleSubmit}>Submit</button>
+                            <MapWithSearch googleMapsApiKey={googleMapsApiKey} onLocationSelect={handleLocationSelect} />
                         </form>
-                        <MapWithSearch googleMapsApiKey={googleMapsApiKey} />
                     </div>
 
                 </div> 

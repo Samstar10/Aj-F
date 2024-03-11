@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, useLoadScript , Marker, StandaloneSearchBox } fr
 
 const libraries = ["places"];
 
-const MapWithSearch = ({ googleMapsApiKey }) => {
+const MapWithSearch = ({ googleMapsApiKey, onLocationSelect }) => {
 
     const [map, setMap] = useState(null);
     const [center, setCenter] = useState({ lat: -1.300516, lng: 36.793271 });
@@ -26,6 +26,15 @@ const MapWithSearch = ({ googleMapsApiKey }) => {
                 bounds.union(place.geometry.viewport);
             } else {
                 bounds.extend(place.geometry.location);
+            }
+
+            if (onLocationSelect && places.length > 0) {
+                const {geometry, name} = places[0]
+                onLocationSelect({
+                    latitude: geometry.location.lat(),
+                    longitude: geometry.location.lng(),
+                    location: name
+                })
             }
         });
         map.fitBounds(bounds);
