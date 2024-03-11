@@ -47,7 +47,7 @@ const MapWithSearch = ({ googleMapsApiKey, onLocationSelect }) => {
     return (
         <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={libraries}>
             <GoogleMap
-                mapContainerStyle={{ height: "400px", width: "400px" }}
+                mapContainerStyle={{ height: "400px", width: "100%" }}
                 center={center}
                 zoom={15}
                 onLoad={onMapLoad}
