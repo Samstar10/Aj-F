@@ -137,9 +137,10 @@ export default function IncidentReport() {
                             <label htmlFor="file">Images</label>
                             <input type="file" name="file" multiple onChange={(e) => setFiles(e.target.files)}/>
                             <button type="submit" onClick={handleSubmit}>Submit</button>
-                            <MapWithSearch googleMapsApiKey={googleMapsApiKey} />
                         </form>
+                        <MapWithSearch googleMapsApiKey={googleMapsApiKey} />
                     </div>
+
                 </div> 
             </div>
         </div>

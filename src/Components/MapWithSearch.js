@@ -61,7 +61,10 @@ const MapWithSearch = ({ googleMapsApiKey }) => {
                             fontSize: `14px`,
                             outline: `none`,
                             textOverflow: `ellipses`,
+                            zIndex: '2',
+                            position: 'absolute',
                         }}
+                        ref={searchBoxRef}
                     />
                 </StandaloneSearchBox>
                 {markers.map((marker, index) => (
