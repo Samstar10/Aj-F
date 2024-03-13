@@ -3,17 +3,15 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import MapWithSearch from "./MapWithSearch";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function IncidentReport() {
-    const [formData, setFormData] = useState(() => {
-        const storedFormData = localStorage.getItem("formData")
-        return storedFormData ? JSON.parse(storedFormData) : {
-            title: "",
-            description: "",
-            location: "",
-            latitude: 0,
-            longitude: 0,
-        }
+    const [formData, setFormData] = useState({
+        title: "",
+        description: "",
+        location: "",
+        latitude: 0,
+        longitude: 0
     })
     const [files, setFiles] = useState([])
     const [username, setUsername] = useState("")
@@ -21,9 +19,6 @@ export default function IncidentReport() {
     const token = localStorage.getItem("token")
     const googleMapsApiKey = "AIzaSyAzkck1QZS55S3XuMZ4jXNzkfH-W2r6u_8"
 
-    useEffect(() => {
-        localStorage.setItem("formData", JSON.stringify(formData))
-    }, [formData])
 
     useEffect(() => {
         if(token){
@@ -47,85 +42,43 @@ export default function IncidentReport() {
 
     const handleChange = (e) => {
         const {name, value} = e.target
-        setFormData((formData) => ({...formData, [name]: value}))
-    }
-
-    
-
-    const createIncidentReport =async (currentFormData) => {
-
-        try{
-            fetch("https://ajali-b.onrender.com/incidents", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify(currentFormData)
-            })
-            .then((res) => res.json())
-            .then((data) => {
-                if(data) {
-                    console.log("incident reported", data)
-                    return data
-                }
-                else {
-                    console.log("incident report failed", data)
-                }
-            })
-            
-        }
-        catch(err) {
-            console.log(err)
-        }
-    }
-
-    const uploadMedia = (reportId) => {
-        const data = new FormData();
-
-        for(let i = 0; i < files.length; i++) {
-            data.append("files", files[i])
-        }
-
-        try{
-            fetch(`https://ajali-b.onrender.com/incidents/media/${reportId}`, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                },
-                body: data
-            })
-            .then(res => res.json())
-            .then((data) => {
-                if(data) {
-                    console.log("media uploaded", data)
-                }
-                else {
-                    console.log("media upload failed", data)
-                }
-            })
-        }
-        catch(err) {
-            console.log(err)
-        }
-
+        setFormData((formData) => {
+            const updatedFormData = {...formData, [name]: value}
+            localStorage.setItem("formData", JSON.stringify(updatedFormData))
+            return updatedFormData
+        })
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const currentFormData = JSON.parse(localStorage.getItem("formData"))
+        console.log(formData)
+
+        const storedData = localStorage.getItem("formData")
+        const data = storedData ? JSON.parse(storedData) : {
+            title: "",
+            description: "",
+            location: "",
+            latitude: 0,
+            longitude: 0
+        }
 
         try{
-            createIncidentReport(currentFormData)
-            uploadMedia(currentFormData.id)
+            const response = await axios.post("https://ajali-b.onrender.com/incidents", data, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            console.log(response.data)
             navigate("/myincidents")
+            localStorage.removeItem("formData")
         }
         catch(err) {
             console.log(err)
         }
-    }
 
+    }
     
 
     return (
