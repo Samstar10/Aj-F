@@ -32,7 +32,7 @@ export default function IncidentReport() {
 
             setUsername(name)
         }
-    }, [])
+    }, [token])
 
     const handleLocationSelect = ({latitude, longitude, location}) => {
         setFormData({
@@ -84,7 +84,7 @@ export default function IncidentReport() {
         const data = new FormData();
 
         for(let i = 0; i < files.length; i++) {
-            data.append("file", files[i])
+            data.append("files", files[i])
         }
 
         try{

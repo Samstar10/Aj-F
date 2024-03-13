@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { GoogleMap, LoadScript, useLoadScript , Marker, StandaloneSearchBox } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker, StandaloneSearchBox } from "@react-google-maps/api";
 
 const libraries = ["places"];
 
